@@ -1,0 +1,51 @@
+{
+  "name": "mwap-app",
+  "version": "1.0.0",
+  "description": "Mwap app demo",
+  "author": "tundera",
+  "license": "MIT",
+  "prisma": {
+    "schema": "db/schema.prisma"
+  },
+  "scripts": {
+    "generate": "prisma generate",
+    "build": "mwap build",
+    "dev": "mwap dev",
+    "start": "mwap start"
+  },
+  "dependencies": {
+    "@chakra-ui/icons": "^1.0.13",
+    "@chakra-ui/react": "^1.6.1",
+    "@emotion/react": "^11.4.0",
+    "@emotion/styled": "^11.3.0",
+    "@prisma/client": "2.22.1",
+    "framer-motion": "^4.1.13",
+    "graphql": "^15.5.0",
+    "graphql-request": "^3.4.0",
+    "graphql-tag": "^2.12.4",
+    "mwap": "^0.0.5",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-icons": "^4.2.0",
+    "react-json-view": "^1.21.3"
+  },
+  "devDependencies": {
+    "@svgr/webpack": "^5.5.0",
+    "@types/node": "^15.0.2",
+    "@types/react": "^17.0.5",
+    "@typescript-eslint/eslint-plugin": "^4.22.1",
+    "@typescript-eslint/parser": "^4.22.1",
+    "eslint": "^7.26.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-cypress": "^2.11.3",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-mdx": "^1.13.0",
+    "eslint-plugin-prettier": "^3.4.0",
+    "eslint-plugin-react": "^7.23.2",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "eslint-plugin-simple-import-sort": "^7.0.0",
+    "prettier": "^2.2.1",
+    "prettier-plugin-prisma": "^0.9.1",
+    "prisma": "2.22.1"
+  }
+}

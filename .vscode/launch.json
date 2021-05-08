@@ -1,0 +1,25 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Launch Node (mwap-app)",
+      "type": "pwa-node",
+      "request": "attach",
+      "skipFiles": ["<node_internals>/**"],
+      "port": 9229
+    },
+    {
+      "name": "Launch Chrome (mwap-app)",
+      "type": "chrome",
+      "request": "launch",
+      "url": "http://localhost:5000",
+      "webRoot": "${workspaceFolder}"
+    }
+  ],
+  "compounds": [
+    {
+      "name": "Debug Fullstack (mwap-app)",
+      "configurations": ["Launch Node (mwap-app)", "Launch Chrome (mwap-app)"]
+    }
+  ]
+}
