@@ -4602,10 +4602,10 @@ ms@2.1.2:
   resolved "https://registry.npmjs.org/ms/-/ms-2.1.2.tgz#d09d1f357b443f493382a8eb3ccd183872ae6009"
   integrity sha512-sGkPx+VjMtmA6MX27oA4FBFELFCZZ4S4XqeGOXCv68tT+jb3vk/RyaKWP0PTKyWtmLSM0b+adUTEvbs1PEaH2w==
 
-mwap@^0.0.5:
-  version "0.0.5"
-  resolved "https://registry.npmjs.org/mwap/-/mwap-0.0.5.tgz#81782ab247c4ad2f1900bb87fb33f5b314951b09"
-  integrity sha512-4+k9xImtTiFO3ltkahmK2w9HqIW5bgVLV5kBf4LXXqp1CFqBi7mAmu5bPguMQZ20gDIM+JxcFIVI7vuoucmchg==
+mwap@^0.0.6:
+  version "0.0.6"
+  resolved "https://registry.npmjs.org/mwap/-/mwap-0.0.6.tgz#f396af03f7cc8d4bfdf21664a8a6fa7d2c134c5b"
+  integrity sha512-c4i/8RZSE9x8EWeGr6wtpukiKeoW8UjctrWSD5ce+eBZBg9L7toCVn7UML3JU5KGEMIyqaAj39ao3c3DbdKW7w==
   dependencies:
     "@babel/core" "7.13.15"
     "@mwap/app" "*"
