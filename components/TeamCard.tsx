@@ -1,5 +1,5 @@
 import React from 'react'
-import { chakra, Box, Image, Flex, useColorModeValue, Link } from '@chakra-ui/react'
+import { chakra, Box, Flex, Image, useColorModeValue, Link, Spinner } from '@chakra-ui/react'
 
 import type { Team } from '../db'
 
@@ -24,8 +24,14 @@ const TeamCard: React.FC<TeamCardProps> = ({ team }) => {
         overflow="hidden"
         mx="auto"
       >
-        <Image w="full" h={56} fit="cover" src={team.logo} alt="team logo" />
-
+        <Image
+          w="full"
+          h={56}
+          fit="cover"
+          src={team.logo}
+          alt="team logo"
+          fallback={<Spinner label="Loading image..." />}
+        />
         <Box py={5} textAlign="center">
           <Link
             display="block"

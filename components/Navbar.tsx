@@ -31,7 +31,16 @@ export default function Navbar() {
 
   return (
     <React.Fragment>
-      <chakra.header bg={bg} w="full" px={{ base: 2, sm: 4 }} py={4} shadow="md" color={color}>
+      <chakra.header
+        bg={bg}
+        w="full"
+        px={{ base: 2, sm: 4 }}
+        py={4}
+        shadow="md"
+        color={color}
+        position="sticky"
+        zIndex="20"
+      >
         <Flex alignItems="center" justifyContent="space-between" mx="auto">
           <Flex>
             <Link

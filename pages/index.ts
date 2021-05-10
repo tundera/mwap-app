@@ -3,6 +3,7 @@ import type { Page } from 'mwap'
 import About from './about'
 import Home from './home'
 import Teams from './teams'
+import Team from './team'
 
 const pages: Page[] = [
   {
@@ -18,6 +19,7 @@ const pages: Page[] = [
     component: Teams,
     path: '/teams',
   },
+  { component: Team, path: '/teams/:id' },
 ]
 
 export default pages
