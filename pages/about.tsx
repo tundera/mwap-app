@@ -8,6 +8,7 @@ import { useLocation } from 'react-router-dom'
 import { useLoader } from 'mwap'
 
 import type { AboutPageData, AboutPageParams } from '../loaders/about'
+import { MotionBox } from '../components/MotionBox'
 
 const useQueryParams = () => {
   const location = useLocation()
@@ -28,18 +29,25 @@ const AboutPage: FC = () => {
     message: queryParams.message,
   })
 
-  const [count, setCount] = useState(5)
-
   return (
     <>
       <Helmet>
         <title>About</title>
       </Helmet>
 
-      <Heading as="h1">{message}</Heading>
-      <Button my="8" onClick={() => setCount(count + 1)}>
-        Count: {count}
-      </Button>
+      <MotionBox
+        display="flex"
+        py="16"
+        flexDirection="column"
+        alignItems="center"
+        justifyContent="center"
+        initial={{ scaleY: 0 }}
+        animate={{ scaleY: 1 }}
+        exit={{ scaleY: 0 }}
+        transition={{ duration: 0.5 }}
+      >
+        <Heading as="h1">{message}</Heading>
+      </MotionBox>
     </>
   )
 }

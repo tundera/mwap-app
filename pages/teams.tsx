@@ -7,6 +7,8 @@ import { useLoader } from 'mwap'
 
 import type { TeamsPageData } from '../loaders/teams'
 import TeamCard from '../components/TeamCard'
+import { MotionBox } from '../components/MotionBox'
+
 // import ReactJson from 'react-json-view'
 
 const TeamsPage: FC = () => {
@@ -18,12 +20,24 @@ const TeamsPage: FC = () => {
         <title>Teams</title>
       </Helmet>
 
-      <Heading as="h1">Teams</Heading>
-      <SimpleGrid columns={[1, null, 2, 3]} spacing="80px">
-        {teams?.map((team) => (
-          <TeamCard team={team} key={team.id} />
-        ))}
-      </SimpleGrid>
+      <MotionBox
+        display="flex"
+        py="16"
+        flexDirection="column"
+        alignItems="center"
+        justifyContent="center"
+        initial={{ scaleY: 0 }}
+        animate={{ scaleY: 1 }}
+        exit={{ scaleY: 0 }}
+        transition={{ duration: 0.5 }}
+      >
+        <Heading as="h1">Teams</Heading>
+        <SimpleGrid columns={[1, null, 2, 3]} spacing="80px">
+          {teams?.map((team) => (
+            <TeamCard team={team} key={team.id} />
+          ))}
+        </SimpleGrid>
+      </MotionBox>
     </>
   )
 }

@@ -39,7 +39,7 @@ export default function Navbar() {
         shadow="md"
         color={color}
         position="sticky"
-        zIndex="20"
+        zIndex="100"
       >
         <Flex alignItems="center" justifyContent="space-between">
           <Flex>
