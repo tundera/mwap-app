@@ -1,3 +1,6 @@
+const path = require('path')
+const Dotenv = require('dotenv-webpack')
+
 module.exports = {
   webpack(config, { isServer, mode }) {
     // Use preact in production for smaller bundles
@@ -23,6 +26,12 @@ module.exports = {
       test: /\.svg$/,
       use: ['@svgr/webpack'],
     })
+
+    config.plugins.push(
+      new Dotenv({
+        path: path.resolve(__dirname, './.env'),
+      }),
+    )
 
     return config
   },
