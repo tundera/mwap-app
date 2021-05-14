@@ -1,6 +1,6 @@
 import type { FC } from 'react'
 import * as React from 'react'
-import { Heading, Grid, GridItem } from '@chakra-ui/react'
+import { Heading, SimpleGrid } from '@chakra-ui/react'
 import { Helmet } from 'react-helmet-async'
 
 import { useLoader } from 'mwap'
@@ -10,7 +10,7 @@ import TeamCard from '../components/TeamCard'
 // import ReactJson from 'react-json-view'
 
 const TeamsPage: FC = () => {
-  const { teams } = useLoader<TeamsPageData>('team')
+  const { teams } = useLoader<TeamsPageData>('teams')
 
   return (
     <>
@@ -19,14 +19,11 @@ const TeamsPage: FC = () => {
       </Helmet>
 
       <Heading as="h1">Teams</Heading>
-      <Grid templateColumns="repeat(5, 1fr)">
+      <SimpleGrid columns={[1, null, 2, 3]} spacing="80px">
         {teams?.map((team) => (
-          <GridItem>
-            <TeamCard team={team} />
-            {/* <ReactJson src={team} /> */}
-          </GridItem>
+          <TeamCard team={team} key={team.id} />
         ))}
-      </Grid>
+      </SimpleGrid>
     </>
   )
 }

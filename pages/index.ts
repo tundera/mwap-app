@@ -19,7 +19,10 @@ const pages: Page[] = [
     component: Teams,
     path: '/teams',
   },
-  { component: Team, path: '/teams/:id' },
+  {
+    component: Team,
+    path: '/team/:id',
+  },
 ]
 
 export default pages

@@ -4,13 +4,9 @@
   "description": "Mwap app demo",
   "author": "tundera",
   "license": "MIT",
-  "prisma": {
-    "schema": "db/schema.prisma"
-  },
   "scripts": {
-    "generate": "prisma generate",
-    "build": "mwap build",
-    "dev": "mwap dev",
+    "build": "mwap build --entry ./server.ts",
+    "dev": "mwap dev --entry ./server.ts",
     "start": "mwap start"
   },
   "dependencies": {
@@ -18,12 +14,12 @@
     "@chakra-ui/react": "^1.6.1",
     "@emotion/react": "^11.4.0",
     "@emotion/styled": "^11.3.0",
-    "@prisma/client": "^2.22.1",
-    "framer-motion": "^4.1.13",
+    "@supabase/supabase-js": "^1.11.13",
+    "framer-motion": "^4.1.16",
     "graphql": "^15.5.0",
     "graphql-request": "^3.4.0",
     "graphql-tag": "^2.12.4",
-    "mwap": "^0.0.7",
+    "mwap": "^0.0.11",
     "preact": "^10.5.13",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
@@ -33,7 +29,7 @@
   },
   "devDependencies": {
     "@svgr/webpack": "^5.5.0",
-    "@types/node": "^15.0.2",
+    "@types/node": "^15.0.3",
     "@types/react": "^17.0.5",
     "@typescript-eslint/eslint-plugin": "^4.23.0",
     "@typescript-eslint/parser": "^4.23.0",
@@ -46,8 +42,7 @@
     "eslint-plugin-react": "^7.23.2",
     "eslint-plugin-react-hooks": "^4.2.0",
     "eslint-plugin-simple-import-sort": "^7.0.0",
-    "prettier": "^2.3.0",
-    "prettier-plugin-prisma": "^0.9.1",
-    "prisma": "2.22.1"
+    "inspx": "^0.0.1-alpha.6",
+    "prettier": "^2.3.0"
   }
 }

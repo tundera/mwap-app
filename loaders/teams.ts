@@ -1,18 +1,18 @@
 import type { Loader, LoaderConfigFunc } from 'mwap'
-import type { Team } from '../db'
 
-import db from '../db'
+import supabase from '../lib/supabase'
 
 export type TeamsPageData = {
-  teams: Team[]
+  teams: any[]
   ttl: number
 }
 
 const loader: Loader<TeamsPageData> = async () => {
-  const teams = await db.team.findMany()
+  // const teams = await db.team.findMany()
+  const { data: teams } = await supabase.from('Team').select('*')
 
   return {
-    teams,
+    teams: teams,
     ttl: 604800,
   }
 }

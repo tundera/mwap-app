@@ -41,7 +41,7 @@ export default function Navbar() {
         position="sticky"
         zIndex="20"
       >
-        <Flex alignItems="center" justifyContent="space-between" mx="auto">
+        <Flex alignItems="center" justifyContent="space-between">
           <Flex>
             <Link
               href="/"
@@ -107,7 +107,7 @@ export default function Navbar() {
                 display={{ base: 'flex', md: 'none' }}
                 aria-label="Open menu"
                 fontSize="20px"
-                color={useColorModeValue('gray.800', 'inherit')}
+                color="current"
                 variant="ghost"
                 icon={<AiOutlineMenu />}
                 onClick={mobileNav.onOpen}
@@ -129,7 +129,7 @@ export default function Navbar() {
                 shadow="sm"
               >
                 <CloseButton aria-label="Close menu" onClick={mobileNav.onClose} />
-                <Button as={MwapLink} to="/" w="full" variant="ghost">
+                <Button as={MwapLink} to="/" w="full" variant="ghost" onClick={mobileNav.onClose}>
                   Home
                 </Button>
                 <Button
@@ -137,10 +137,17 @@ export default function Navbar() {
                   to={`/about?message=${encodeURI('Test Message From Search')}`}
                   w="full"
                   variant="ghost"
+                  onClick={mobileNav.onClose}
                 >
                   About
                 </Button>
-                <Button as={MwapLink} to="/teams" w="full" variant="ghost">
+                <Button
+                  as={MwapLink}
+                  to="/teams"
+                  w="full"
+                  variant="ghost"
+                  onClick={mobileNav.onClose}
+                >
                   Teams
                 </Button>
               </VStack>

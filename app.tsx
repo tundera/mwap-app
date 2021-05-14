@@ -1,11 +1,12 @@
-import * as React from 'react'
+import React from 'react'
 import { Suspense } from 'react'
 import { Helmet } from 'react-helmet-async'
-import { ChakraProvider, Flex, Spinner } from '@chakra-ui/react'
-
+import { chakra, ChakraProvider, Spinner, Flex } from '@chakra-ui/react'
 import { ScrollToTop, useLoader } from 'mwap'
+import Inspect from 'inspx'
 
 import Navbar from './components/Navbar'
+import Footer from './components/Footer'
 
 import type { AppShellProps } from './loaders/app-shell'
 
@@ -15,7 +16,6 @@ const App = ({ children }) => {
   return (
     <ChakraProvider>
       <ScrollToTop />
-
       <Helmet
         htmlAttributes={{ lang: 'en' }}
         defaultTitle="@mwap minimal example"
@@ -31,12 +31,36 @@ const App = ({ children }) => {
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
         <link rel="manifest" href="/site.webmanifest" />
       </Helmet>
-
-      <Navbar />
-      <Flex direction="column" alignItems="center" justifyContent="center" w="full" minH="100vh">
-        <h1>{title}</h1>
-        <Suspense fallback={<Spinner label="Loading..." />}>{children}</Suspense>
-      </Flex>
+      <Inspect disabled={process.env.NODE_ENV !== 'development'}>
+        <Flex flexDir="column" minH="100vh">
+          <Flex as="header" w="full" alignItems="center">
+            <Navbar />
+          </Flex>
+          <chakra.main w="full" flex="1 1 auto" alignItems="center">
+            <Flex
+              maxW={['48em', '62em', '80em']}
+              mx="auto"
+              px="3"
+              justify="center"
+              align="center"
+              direction="column"
+            >
+              <Suspense
+                fallback={
+                  <Flex minH="100vh" direction="column" justify="center" align="center">
+                    <Spinner size="xl" label="Loading..." />
+                  </Flex>
+                }
+              >
+                {children}
+              </Suspense>
+            </Flex>
+          </chakra.main>
+          <chakra.footer w="full">
+            <Footer />
+          </chakra.footer>
+        </Flex>
+      </Inspect>
     </ChakraProvider>
   )
 }

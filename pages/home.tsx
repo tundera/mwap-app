@@ -1,5 +1,5 @@
 import type { FC } from 'react'
-import * as React from 'react'
+import React from 'react'
 import { Heading, Button } from '@chakra-ui/react'
 import { useState } from 'react'
 import { Helmet } from 'react-helmet-async'

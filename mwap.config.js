@@ -1,16 +1,17 @@
-const path = require('path')
-
-const getJsTsRules = require('mwap/lib/utils/get-jsts-rules')
-const getStyleRules = require('mwap/lib/utils/get-style-rules')
-
 module.exports = {
-  webpack(config, args) {
+  webpack(config, { isServer, mode }) {
     // Use preact in production for smaller bundles
-    // if (!args.isServer && args.mode === 'production') {
-    //   config.resolve.alias = config.resolve.alias || {}
-    //   config.resolve.alias.react = 'preact/compat'
-    //   config.resolve.alias['react-dom'] = 'preact/compat'
-    // }
+    if (!isServer && mode === 'production') {
+      config.resolve.alias = config.resolve.alias || {}
+      config.resolve.alias.react = 'preact/compat'
+      config.resolve.alias['react-dom'] = 'preact/compat'
+    }
+
+    if (isServer) {
+      config.externals = config.externals || {}
+      config.externals.encoding = 'commonjs encoding'
+      config.externals._http_common = 'commonjs _http_common'
+    }
 
     config.module.rules.push({
       test: /\.(graphql|gql)$/,
