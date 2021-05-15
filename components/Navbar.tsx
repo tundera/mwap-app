@@ -16,6 +16,7 @@ import {
   CloseButton,
   useColorMode,
 } from '@chakra-ui/react'
+import styled from '@emotion/styled'
 import { AiOutlineMenu } from 'react-icons/ai'
 import { FaReact, FaMoon, FaSun } from 'react-icons/fa'
 import { Link as MwapLink } from 'react-router-dom'
@@ -29,17 +30,23 @@ export default function Navbar() {
   const color = useColorModeValue('white', 'gray.800')
   const SwitchIcon = useColorModeValue(FaMoon, FaSun)
 
+  const StickyFlex = styled(chakra.header)`
+    position: sticky;
+    backdrop-filter: saturate(180%) blur(20px);
+    transition: background-color 0.1 ease-in-out;
+  `
+
   return (
     <React.Fragment>
-      <chakra.header
+      <StickyFlex
         bg={bg}
         w="full"
         px={{ base: 2, sm: 4 }}
         py={4}
         shadow="md"
         color={color}
-        position="sticky"
-        zIndex="100"
+        zIndex="20"
+        position="fixed"
       >
         <Flex alignItems="center" justifyContent="space-between">
           <Flex>
@@ -154,7 +161,7 @@ export default function Navbar() {
             </Box>
           </HStack>
         </Flex>
-      </chakra.header>
+      </StickyFlex>
     </React.Fragment>
   )
 }

@@ -33,9 +33,7 @@ const App = ({ children }) => {
       </Helmet>
       <Inspect disabled={process.env.NODE_ENV !== 'development'}>
         <Flex flexDir="column" minH="100vh">
-          <Flex as="header" w="full" alignItems="center">
-            <Navbar />
-          </Flex>
+          <Navbar />
           <chakra.main w="full" flex="1 1 auto" alignItems="center">
             <Flex
               maxW={['48em', '62em', '80em']}
@@ -56,9 +54,7 @@ const App = ({ children }) => {
               </Suspense>
             </Flex>
           </chakra.main>
-          <chakra.footer w="full">
-            <Footer />
-          </chakra.footer>
+          <Footer />
         </Flex>
       </Inspect>
     </ChakraProvider>
