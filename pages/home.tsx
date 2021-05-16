@@ -25,9 +25,9 @@ const HomePage: FC = () => {
         flexDirection="column"
         alignItems="center"
         justifyContent="center"
-        initial={{ scaleY: 0 }}
-        animate={{ scaleY: 1 }}
-        exit={{ scaleY: 0 }}
+        initial={{ scale: 0 }}
+        animate={{ scale: 1 }}
+        exit={{ scale: 0 }}
         transition={{ duration: 0.5 }}
       >
         <Heading as="h1">Hello, {name}!</Heading>
