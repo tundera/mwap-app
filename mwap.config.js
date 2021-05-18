@@ -1,4 +1,5 @@
 const path = require('path')
+
 const Dotenv = require('dotenv-webpack')
 
 module.exports = {
@@ -27,7 +28,7 @@ module.exports = {
       use: ['@svgr/webpack'],
     })
 
-    config.plugins.push(new Dotenv())
+    // config.plugins.push(new Dotenv())
 
     return config
   },

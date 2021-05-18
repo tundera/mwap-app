@@ -9,10 +9,12 @@ export type TeamsPageData = {
 
 const loader: Loader<TeamsPageData> = async () => {
   // const teams = await db.team.findMany()
-  const { data: teams } = await supabase.from('Team').select('*')
+  const response = await supabase.from('Team').select('*')
+
+  console.dir(response)
 
   return {
-    teams: teams,
+    teams: response.data,
     ttl: 604800,
   }
 }

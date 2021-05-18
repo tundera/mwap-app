@@ -4,7 +4,7 @@ import { chakra, Flex } from '@chakra-ui/react'
 
 const MainLayout: React.FC = ({ children }) => {
   return (
-    <chakra.div as={Flex} flexDir="column" minH="100vh">
+    <chakra.div as={Flex} flexDir="column">
       <chakra.header as={Flex} w="full" alignItems="center">
         Header content
       </chakra.header>

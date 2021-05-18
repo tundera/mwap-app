@@ -1,9 +1,7 @@
 import type { FC } from 'react'
 import React from 'react'
-import { Heading, Button } from '@chakra-ui/react'
-import { useState } from 'react'
+import { Heading } from '@chakra-ui/react'
 import { Helmet } from 'react-helmet-async'
-
 import { useLoader } from 'mwap'
 
 import type { HomePageData } from '../loaders/home'

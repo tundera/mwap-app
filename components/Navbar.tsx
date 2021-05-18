@@ -37,131 +37,128 @@ export default function Navbar() {
   `
 
   return (
-    <React.Fragment>
-      <StickyFlex
-        bg={bg}
-        w="full"
-        px={{ base: 2, sm: 4 }}
-        py={4}
-        shadow="md"
-        color={color}
-        zIndex="20"
-        position="fixed"
-      >
-        <Flex alignItems="center" justifyContent="space-between">
-          <Flex>
-            <Link
-              href="/"
-              title="Mwap App Home Page"
-              display="flex"
-              alignItems="center"
-              mx="4"
+    <StickyFlex
+      bg={bg}
+      w="full"
+      px={{ base: 2, sm: 4 }}
+      py={4}
+      shadow="md"
+      color={color}
+      zIndex="20"
+    >
+      <Flex alignItems="center" justifyContent="space-between">
+        <Flex>
+          <Link
+            href="/"
+            title="Mwap App Home Page"
+            display="flex"
+            alignItems="center"
+            mx="4"
+            _hover={{ color: '#61dbfb' }}
+            _focus={{ color: '#61dbfb' }}
+          >
+            <FaReact size="32" />
+            <VisuallyHidden>mwap</VisuallyHidden>
+          </Link>
+          <Heading as="h1" fontSize="2xl" fontWeight="bold">
+            mwap
+          </Heading>
+        </Flex>
+        <HStack display="flex" alignItems="center" spacing={1}>
+          <HStack spacing={1} mr={1} display={{ base: 'none', md: 'inline-flex' }}>
+            <Button
+              as={MwapLink}
+              to="/"
+              variant="ghost"
+              color="current"
               _hover={{ color: '#61dbfb' }}
               _focus={{ color: '#61dbfb' }}
             >
-              <FaReact size="32" />
-              <VisuallyHidden>mwap</VisuallyHidden>
-            </Link>
-            <Heading as="h1" fontSize="2xl" fontWeight="bold">
-              mwap
-            </Heading>
-          </Flex>
-          <HStack display="flex" alignItems="center" spacing={1}>
-            <HStack spacing={1} mr={1} display={{ base: 'none', md: 'inline-flex' }}>
-              <Button
-                as={MwapLink}
-                to="/"
-                variant="ghost"
-                color="current"
-                _hover={{ color: '#61dbfb' }}
-                _focus={{ color: '#61dbfb' }}
-              >
+              Home
+            </Button>
+            <Button
+              as={MwapLink}
+              to={`/about?message=${encodeURI('Test Message From Search')}`}
+              variant="ghost"
+              color="current"
+              _hover={{ color: '#61dbfb' }}
+              _focus={{ color: '#61dbfb' }}
+            >
+              About
+            </Button>
+            <Button
+              as={MwapLink}
+              to="/teams"
+              variant="ghost"
+              color="current"
+              _hover={{ color: '#61dbfb' }}
+              _focus={{ color: '#61dbfb' }}
+            >
+              Teams
+            </Button>
+          </HStack>
+          <IconButton
+            size="md"
+            fontSize="lg"
+            aria-label={`Switch to ${text} mode`}
+            variant="ghost"
+            color="current"
+            ml={{ base: '0', md: '3' }}
+            onClick={toggleColorMode}
+            icon={<SwitchIcon />}
+          />
+          <Box display={{ base: 'inline-flex', md: 'none' }}>
+            <IconButton
+              display={{ base: 'flex', md: 'none' }}
+              aria-label="Open menu"
+              fontSize="20px"
+              color="current"
+              variant="ghost"
+              icon={<AiOutlineMenu />}
+              onClick={mobileNav.onOpen}
+            />
+
+            <VStack
+              pos="absolute"
+              top={0}
+              left={0}
+              right={0}
+              display={mobileNav.isOpen ? 'flex' : 'none'}
+              flexDirection="column"
+              p={2}
+              pb={4}
+              m={2}
+              bg={bg}
+              spacing={3}
+              rounded="sm"
+              shadow="sm"
+            >
+              <CloseButton aria-label="Close menu" onClick={mobileNav.onClose} />
+              <Button as={MwapLink} to="/" w="full" variant="ghost" onClick={mobileNav.onClose}>
                 Home
               </Button>
               <Button
                 as={MwapLink}
                 to={`/about?message=${encodeURI('Test Message From Search')}`}
+                w="full"
                 variant="ghost"
-                color="current"
-                _hover={{ color: '#61dbfb' }}
-                _focus={{ color: '#61dbfb' }}
+                onClick={mobileNav.onClose}
               >
                 About
               </Button>
               <Button
                 as={MwapLink}
                 to="/teams"
+                w="full"
                 variant="ghost"
-                color="current"
-                _hover={{ color: '#61dbfb' }}
-                _focus={{ color: '#61dbfb' }}
+                onClick={mobileNav.onClose}
               >
                 Teams
               </Button>
-            </HStack>
-            <IconButton
-              size="md"
-              fontSize="lg"
-              aria-label={`Switch to ${text} mode`}
-              variant="ghost"
-              color="current"
-              ml={{ base: '0', md: '3' }}
-              onClick={toggleColorMode}
-              icon={<SwitchIcon />}
-            />
-            <Box display={{ base: 'inline-flex', md: 'none' }}>
-              <IconButton
-                display={{ base: 'flex', md: 'none' }}
-                aria-label="Open menu"
-                fontSize="20px"
-                color="current"
-                variant="ghost"
-                icon={<AiOutlineMenu />}
-                onClick={mobileNav.onOpen}
-              />
-
-              <VStack
-                pos="absolute"
-                top={0}
-                left={0}
-                right={0}
-                display={mobileNav.isOpen ? 'flex' : 'none'}
-                flexDirection="column"
-                p={2}
-                pb={4}
-                m={2}
-                bg={bg}
-                spacing={3}
-                rounded="sm"
-                shadow="sm"
-              >
-                <CloseButton aria-label="Close menu" onClick={mobileNav.onClose} />
-                <Button as={MwapLink} to="/" w="full" variant="ghost" onClick={mobileNav.onClose}>
-                  Home
-                </Button>
-                <Button
-                  as={MwapLink}
-                  to={`/about?message=${encodeURI('Test Message From Search')}`}
-                  w="full"
-                  variant="ghost"
-                  onClick={mobileNav.onClose}
-                >
-                  About
-                </Button>
-                <Button
-                  as={MwapLink}
-                  to="/teams"
-                  w="full"
-                  variant="ghost"
-                  onClick={mobileNav.onClose}
-                >
-                  Teams
-                </Button>
-              </VStack>
-            </Box>
-          </HStack>
-        </Flex>
-      </StickyFlex>
-    </React.Fragment>
+            </VStack>
+          </Box>
+        </HStack>
+      </Flex>
+    </StickyFlex>
   )
 }

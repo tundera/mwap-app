@@ -32,7 +32,7 @@ const App = ({ children }) => {
         <link rel="manifest" href="/site.webmanifest" />
       </Helmet>
       <Inspect disabled={process.env.NODE_ENV !== 'development'}>
-        <Flex flexDir="column" minH="100vh">
+        <Flex flexDir="column">
           <Navbar />
           <chakra.main w="full" flex="1 1 auto" alignItems="center">
             <Flex
