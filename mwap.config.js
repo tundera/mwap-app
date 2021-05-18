@@ -28,7 +28,7 @@ module.exports = {
       use: ['@svgr/webpack'],
     })
 
-    // config.plugins.push(new Dotenv())
+    config.plugins.push(new Dotenv())
 
     return config
   },
